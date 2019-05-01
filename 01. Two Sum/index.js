@@ -16,7 +16,7 @@ const twoSum =  (nums, target) => {
 };
 
 // 2.
-const twoSum =  (nums, target) => {
+const twoSum2 =  (nums, target) => {
   let mapNums = {}
   for (let i = 0; i < nums.length; i++) {
     const complement = target - nums[i]
