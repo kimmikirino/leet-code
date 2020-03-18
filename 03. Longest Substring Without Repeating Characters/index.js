@@ -48,4 +48,4 @@ var lengthOfLongestSubstringv2 = function(s) {
   return max;
 };
 
-consollengthOfLongestSubstringv2('abcabcbb')
+console.log(lengthOfLongestSubstringv2('abcabcbb'))
