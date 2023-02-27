@@ -4,8 +4,8 @@
  * @return {number[]}
  */
 
- // 1.
-const twoSum =  (nums, target) => {
+// 1.
+const twoSum = (nums, target) => {
   for (let i = 0; i < nums.length; i++) {
     for (let j = i + 1; j < nums.length; j++) {
       if (target === nums[i] + nums[j]) {
@@ -16,14 +16,14 @@ const twoSum =  (nums, target) => {
 };
 
 // 2.
-const twoSum2 =  (nums, target) => {
-  let mapNums = {}
+const twoSum2 = (nums, target) => {
+  let mapNums = {};
   for (let i = 0; i < nums.length; i++) {
-    const complement = target - nums[i]
+    const complement = target - nums[i];
     if (mapNums.hasOwnProperty(complement)) {
       return [mapNums[complement], i];
     }
 
-    mapNums[nums[i]] = i
+    mapNums[nums[i]] = i;
   }
 };
