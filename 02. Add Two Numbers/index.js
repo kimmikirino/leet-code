@@ -25,6 +25,6 @@ var addTwoNumbers = function(l1, l2) {
   let arrl1 = BigInt(convertToArray(l1).reverse().join(''))
   let arrl2 = BigInt(convertToArray(l2).reverse().join(''))
   let sum = arrl1 + arrl2 
-  return sum.toString().split('').reverse().reduceRight((next, val) => ({ val, next }), null)
+  return sum.toString().split('').reduce((next, val) => ({ val, next }), null)
 };
 
