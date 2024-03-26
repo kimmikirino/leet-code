@@ -3,6 +3,33 @@ const OFFSET = ' '.charCodeAt(0);
  * @param {string} s
  * @return {number}
  */
+var lengthOfLongestSubstring0 = function (s) {
+    const arr = s.split('')
+    let mapCombo = {}
+    let auxCombo = {}
+    
+    let lastIndex = 0
+    let result = 0
+
+    arr.forEach((item, idx) => {
+        if (mapCombo[item]) {
+            const copyItemIdx = mapCombo[item]
+             for(let i = lastIndex; i <= copyItemIdx; i ++) {
+                console.log(auxCombo[i], i, mapCombo[item])
+                if(mapCombo[auxCombo[i]] <= copyItemIdx) delete mapCombo[auxCombo[i]]
+             }
+             lastIndex = copyItemIdx
+        }
+        mapCombo[item] = idx
+        auxCombo[idx] = item
+        const cLength = Object.keys(mapCombo).length
+        result = result > cLength ? result : cLength
+
+    })
+
+    return result
+};
+
 var lengthOfLongestSubstring = function(s) {
     
   // if (!s) return 0
@@ -46,6 +73,28 @@ var lengthOfLongestSubstringv2 = function(s) {
   }
   
   return max;
+};
+
+var lengthOfLongestSubstringv3 = function (s) {
+    var chars = new Set();
+    var left = 0;
+    var right = 0;
+    var maxLength = 0;
+
+    while (right < s.length) {
+        var char = s[right];
+        while (chars.has(char)) {
+            chars.delete(s[left]);
+            left++;
+        }
+        chars.add(char);
+        if (maxLength < right - left + 1) {
+            maxLength = right - left + 1;
+        }
+        right++;
+    }
+
+    return maxLength;
 };
 
 console.log(lengthOfLongestSubstringv2('abcabcbb'))
